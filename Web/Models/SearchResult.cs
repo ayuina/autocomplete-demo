@@ -13,7 +13,6 @@ namespace work.Models
 
         public SearchResultEnvelope(bool dummydata)
         {
-            throw new NotImplementedException();
         }
 
     }

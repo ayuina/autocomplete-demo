@@ -6,7 +6,7 @@ metadata:
     name: my-elasticsearch
 spec:
   containers:
-    - image: launcher.gcr.io/google/elasticsearch5
+    - image: ayuina/autocomplete-demo:myelastic
       name: elasticsearch
 
 

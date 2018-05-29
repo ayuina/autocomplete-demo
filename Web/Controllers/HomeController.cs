@@ -52,7 +52,7 @@ namespace work.Controllers
         public async Task<IActionResult> Search(bool contain, string selected, string original, string keyword)
         {
             //var url = "http://localhost:9200/sample/product/_search";
-            var url = "http://localhost:9200/sample/product/_search";
+            var url = "http://35.200.38.9:9200/sample/product/_search";
 
             //var q = string.Format(@"{ ""query"" : { ""match"" : { ""name"" : ""{0}"" } } }", keyword);
             var q = CreateQuery(keyword).ToString();

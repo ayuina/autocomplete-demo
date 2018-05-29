@@ -2,7 +2,7 @@
 
 
 #$basepath = "http://35.190.231.31:9200"
-$basepath = "http://localhost:9200"
+$basepath = "http://35.200.38.9:9200"
 
 function Main()
 {
