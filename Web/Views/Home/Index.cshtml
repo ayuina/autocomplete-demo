@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@section Styles{
+    <link href="~/lib/jquery-flexdatalist/jquery.flexdatalist.min.css" rel="stylesheet" />
+    <style type="text/css">
+
+        .flexdatalist-results li span.highlight {
+            font-weight: 700;
+            text-decoration: underline;
+            color: #000;
+            background: yellow;
+        }
+
+        .flexdatalist-results .item-image {
+            max-height : 40px;
+            max-height : 40px;
+        }
+
+        .flexdatalist-results .item-description {
+            color: rgba(0, 0, 0, 0.50);
+        }
+
+    </style>
+}
+
+<div>
+    <h1>Autocomplete Demo</h1>
+    <div style="width : 100%">
+        <input type="text" id="my-input2" class="form-control">
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/lib/jquery-flexdatalist/jquery.flexdatalist.min.js"></script>
+    <script type="text/javascript">
+    $('#my-input2').flexdatalist({
+        'url': '/Home/Search',
+        'minLength': 1,
+        'searchIn': ['name', 'description'],
+        'searchContain':true,
+        'visibleProperties': ['image', 'name', 'description'],
+        'groupBy':'type',
+        'iconProperty' : 'image'
+        });
+    </script>
+}

@@ -1,0 +1,31 @@
+### history
+#v0.1
+devops
+#v0.2
+autocomplete
+#v0.3
+Datastore
+x
+
+
+
+
+#run local
+
+dotnet restore
+dotnet publish
+docker build .\bin\Debug\netcoreapp2.0\publish\ -t mywebg
+docker run -it -d -p 84:8080 mywebg
+start http://localhost:84
+
+
+###publish gcp###
+
+> gcloud config list
+
+> gcloud config set project projetc-id
+
+> dotnet publish
+> gcloud app deploy .\bin\Debug\netcoreapp2.0\publish\app.yaml
+
+

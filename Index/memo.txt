@@ -1,0 +1,24 @@
+
+> gcloud container clusters list
+NAME       LOCATION           MASTER_VERSION  MASTER_IP      MACHINE_TYPE   NODE_VERSION  NUM_NODES  STATUS
+cluster-2  asia-northeast1-a  1.8.8-gke.0     104.198.85.43  n1-standard-2  1.8.8-gke.0   3          RUNNING
+
+> gcloud container clusters get-credentials cluster-2
+Fetching cluster endpoint and auth data.
+kubeconfig entry generated for cluster-2.
+
+> kubectl create -f .\pod.yaml
+
+> kubectl get pod
+NAME                 READY     STATUS    RESTARTS   AGE
+some-elasticsearch   1/1       Running   0          4m
+
+> kubectl expose pod some-elasticsearch --name some-elasticsearch-9200 --type LoadBalancer --port 9200 --protocol TCP
+service "some-elasticsearch-9200" exposed
+
+> kubectl get services
+NAME                      TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)          AGE
+kubernetes                ClusterIP      10.39.240.1    <none>          443/TCP          14m
+some-elasticsearch-9200   LoadBalancer   10.39.240.27   35.190.231.31   9200:32209/TCP   1m
+
+> start http://35.190.231.31:9200
